@@ -8,7 +8,7 @@ import Button from 'muicss/lib/react/button';
 class Header extends Component{
 
     render(){
-          let alignRight = {float: 'right',margin:'10px'};
+       let alignRight = {float: 'right',margin:'10px'};
 
         return( 
             <Appbar  className="primary_theme">

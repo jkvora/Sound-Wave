@@ -21,14 +21,18 @@ class SearchInput extends Component{
    handleTextChange(event){
        this.setState({
            searchtext: event.target.value
-       })
+       });
+       this.props.results(event.target.value);
    }
 
     render(){
+        let alignInput = {float:'left',width:'calc(100% - 140px)'};
+        let alignSearchButton = {margin: '10px',width:'120px',float:'left'};
+
         return( 
                <div>
-                    <Input type="text" onChange={this.handleTextChange.bind(this)} />
-                    <Button  className="primary_theme" onClick={this.handleButtonClick.bind(this)}>Connect</Button>
+                    <Input type="text" style={alignInput} onChange={this.handleTextChange.bind(this)} />
+                    <Button style={alignSearchButton}  className="primary_theme" onClick={this.handleButtonClick.bind(this)}>Search</Button>
                </div>
         )   
     }

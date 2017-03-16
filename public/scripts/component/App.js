@@ -19,7 +19,7 @@ class App extends Component{
   //Load  youtube apis
   //TODO: load script here
   loadYoutubeApiScript(){
-   
+    
   }
 
 
@@ -43,16 +43,20 @@ class App extends Component{
 
 findResults(text){
     console.log(this);
-      
-    /* var q = "man mohe ke dhage";
-  var request = gapi.client.youtube.search.list({
-    q: q,
-    part: 'snippet'
-  });
+     $.getJSON(
+         "http://suggestqueries.google.com/complete/search?callback=?",{ 
+                  "hl":"en", // Language
+                  "ds":"yt", // Restrict lookup to youtube
+                  "q":text, // query term,
+                   dataType: 'jsonp', //JSONP type
+                  "client":"youtube" // force youtube style response, i.e. jsonp
+                }
+            ,this.fetchSuggestionData.bind(this));
+}
 
-  request.execute(function(response) {
-    console.log(response);
-  });*/
+
+fetchSuggestionData(data){
+  console.log(data);
 }
 
     render(){
