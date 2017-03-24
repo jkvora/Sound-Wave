@@ -39,31 +39,12 @@ class App extends Component{
     setApiKey() {
     
     }
-
-
-findResults(text){
-    console.log(this);
-     $.getJSON(
-         "http://suggestqueries.google.com/complete/search?callback=?",{ 
-                  "hl":"en", // Language
-                  "ds":"yt", // Restrict lookup to youtube
-                  "q":text, // query term,
-                   dataType: 'jsonp', //JSONP type
-                  "client":"youtube" // force youtube style response, i.e. jsonp
-                }
-            ,this.fetchSuggestionData.bind(this));
-}
-
-
-fetchSuggestionData(data){
-  console.log(data);
-}
-
+    
     render(){
         return(
             <div>
                  <Header/>
-                 <SearchInput  results={this.findResults.bind(this)}/>
+                 <SearchInput/>
           </div>
 
         )   
