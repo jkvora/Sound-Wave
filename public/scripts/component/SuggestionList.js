@@ -4,21 +4,21 @@ import {render} from 'react-dom';
 //import components
 import SuggestionItem from './SuggestionItem.js';
 
+// css
+import CommonCss from '../../css/common/common.scss';
+
 class SuggestionList extends Component{
     
     
     render()
     {  
      return( 
-      <div>
-        {
-          Object.keys(this.props.data).map((k) => {
-            const text = this.props.data[k][0];
-            return (
-                <SuggestionItem itemtext={text}/>
-            )
-          })
-        }
+      <div className="left_align clear_float">
+           {
+              this.props.data.map((item) => 
+                <SuggestionItem itemtext={item[0]}/> 
+              )
+           }
    
       </div>
         )   
