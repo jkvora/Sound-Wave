@@ -13,7 +13,7 @@ class SuggestionList extends Component{
     render()
     {  
      return( 
-      <div className="left_align clear_float">
+      <div className="left_align clear_float suggestion_list">
            {
               this.props.data.map((item) => 
                 <SuggestionItem itemtext={item[0]}/> 

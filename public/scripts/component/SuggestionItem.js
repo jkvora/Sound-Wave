@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import {render} from 'react-dom';
 
+// css
+import CommonCss from '../../css/common/common.scss';
 
 class SuggestionItem extends Component{
 
@@ -8,7 +10,7 @@ class SuggestionItem extends Component{
 
 
         return( 
-            <div>
+            <div className="suggestion_item">
                {this.props.itemtext}  
             </div>
         )   

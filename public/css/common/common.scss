@@ -6,7 +6,31 @@
 .left_align{
     float:left;
     padding-left: 15px;
+    margin-bottom:0px;
 }
+.text_search{
+    width:calc(100% - 155px);
+}
+
+.suggestion_list{
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19) !important;
+}
+
+.suggestion_item{
+    height:20px;
+    font-family: cursive;
+}
+
+.suggestion_item :hover{
+    background-color:#ccc;
+}
+
+
+.font_cursive{
+    font-family: cursive;
+}
+
 .clear_float{
     clear: both;
 }

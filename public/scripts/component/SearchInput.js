@@ -70,13 +70,14 @@ class SearchInput extends Component{
 	}
 	
 	render(){
-		let alignInput = {width:'calc(100% - 155px)'};
+	
 		let alignSearchButton = {margin: '10px',width:'120px',float:'left'};
+		let dimensions = {position:'relative',width:'100%',height:'50px'};
 		
 
 		return( 
-		<div>
-			<Input type="text" className="left_align" style={alignInput} onChange={this.handleTextChange.bind(this)} />
+		<div style={dimensions}>
+			<Input type="text" className="left_align text_search"  onChange={this.handleTextChange.bind(this)} />
 			<Button style={alignSearchButton}  className="primary_theme" onClick={this.handleButtonClick.bind(this)}>Search</Button>
 			<SuggestionList data={this.state.suggestiondata} />
 		</div>
