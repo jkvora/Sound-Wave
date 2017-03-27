@@ -78,7 +78,7 @@ class SearchInput extends Component{
 		return( 
 		<div style={dimensions}>
 			<Input type="text" className="left_align text_search"  onChange={this.handleTextChange.bind(this)} />
-			<Button style={alignSearchButton}  className="primary_theme" onClick={this.handleButtonClick.bind(this)}>Search</Button>
+			<Button style={alignSearchButton}  className="primary_theme font_cursive" onClick={this.handleButtonClick.bind(this)}>Search</Button>
 			<SuggestionList data={this.state.suggestiondata} />
 		</div>
 		)   

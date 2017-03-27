@@ -16,8 +16,8 @@ class Header extends Component{
         return( 
             <Appbar  className="primary_theme">
                      <span className="font_cursive" style={header_title}>SoundWave</span>
-                     <Button  className="primary_theme" style={alignRight}>Contact Me</Button>
-                     <Button  className="primary_theme" style={alignRight}>About</Button>          
+                     <Button  className="primary_theme font_cursive" style={alignRight}>Contact Me</Button>
+                     <Button  className="primary_theme font_cursive" style={alignRight}>About</Button>          
             </Appbar>
         )   
     }
