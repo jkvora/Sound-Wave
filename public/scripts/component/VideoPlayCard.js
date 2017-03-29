@@ -14,15 +14,19 @@ class VideoPlayCard extends Component{
     
     
     render(){
+
+        let floatLeft={float:'left'};
+        let clearLeft={clear:'left'};
+
         return(
-            <div class="cardbox">
-                <div>
-                     <div class="card_thumbnail"></div>
+            <div className="cardbox" style={clearLeft}>
+                <div style={floatLeft}>
+                     <img src={this.props.details.thumbnails.default.url} className="card_thumbnail"></img>
                 </div>
 
-                <div>
-                    <div class="card_title">{this.props.details.title}</div>
-                    <div class="card_description">{this.props.details.description}</div>
+                <div style={floatLeft} className="card_details">
+                    <div className="card_title font_cursive">{this.props.details.title}</div>
+                    <div className="card_description font_cursive">{this.props.details.description}</div>
                 </div>
             </div>  
         )

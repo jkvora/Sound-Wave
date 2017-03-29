@@ -16,19 +16,23 @@ class SearchInput extends Component{
 		super()
 		this.state={
 			searchtext:"",
-			suggestiondata:[]
+			suggestiondata:[],
+			showsuggestion:false
 		}
 	}
 	
 	
 	handleButtonClick(){    
 		this.props.results(this.state.searchtext);
+		this.setState({showsuggestion:"false"});
 	}
 	
 	handleTextChange(event){
 	
 		this.setState({
-			searchtext: event.target.value
+			searchtext: event.target.value,
+			showsuggestion:"true"
+			
 		});
 
 		this.findResults(event.target.value);
@@ -49,7 +53,9 @@ class SearchInput extends Component{
 	  }
 	  else{
 		this.setState({
-			suggestiondata: []
+			suggestiondata: [],
+			showsuggestion:"false"
+			
 		});
 	  }
 
@@ -59,6 +65,7 @@ class SearchInput extends Component{
 
 		this.setState({
 			suggestiondata: data[1]
+		
 		});
         return data;
 	}
@@ -79,7 +86,7 @@ class SearchInput extends Component{
 		<div style={dimensions}>
 			<Input type="text" className="left_align text_search"  onChange={this.handleTextChange.bind(this)} />
 			<Button style={alignSearchButton}  className="primary_theme font_cursive" onClick={this.handleButtonClick.bind(this)}>Search</Button>
-			<SuggestionList data={this.state.suggestiondata} />
+			<SuggestionList data={this.state.suggestiondata} show={this.state.showsuggestion} />
 		</div>
 		)   
 	}

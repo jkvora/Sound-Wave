@@ -12,8 +12,14 @@ class SuggestionList extends Component{
     
     render()
     {  
+       let disp=this.props.show=="true"?{display:'block'}:{display:'none'};
+
+
+
      return( 
-      <div className="left_align clear_float suggestion_list">
+    
+    
+      <div className="left_align clear_float suggestion_list" style={disp}>
            {
               this.props.data.map((item) => 
                 <SuggestionItem itemtext={item[0]}/> 
