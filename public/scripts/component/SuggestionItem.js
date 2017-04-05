@@ -7,8 +7,6 @@ import CommonCss from '../../css/common/common.scss';
 class SuggestionItem extends Component{
 
     render(){
-
-
         return( 
             <div className="suggestion_item">
                {this.props.itemtext}  

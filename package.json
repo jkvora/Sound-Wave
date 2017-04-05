@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "serve":"nodemon server/server.js"
   },
+
   "keywords": [
     "Sound",
     "Music",
@@ -23,7 +25,8 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "ytdl-core": "^0.11.0"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -33,6 +36,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "css-loader": "^0.26.1",
     "muicss": "^0.9.9-rc2",
+    "node-inspector": "^1.0.0",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "sass-loader": "^6.0.0",

@@ -27,8 +27,14 @@ class SearchInput extends Component{
 		this.setState({showsuggestion:"false"});
 	}
 	
-	handleTextChange(event){
-	
+	handleKeyUp(event){
+		if(event.which==13)
+		{
+			this.props.results(this.state.searchtext);
+			this.setState({showsuggestion:"false"});
+			return;
+		}
+		
 		this.setState({
 			searchtext: event.target.value,
 			showsuggestion:"true"
@@ -36,9 +42,9 @@ class SearchInput extends Component{
 		});
 
 		this.findResults(event.target.value);
-	
 	}
 	
+
 	findResults(text){
 		if(text!=""){
 			$.getJSON(
@@ -84,7 +90,7 @@ class SearchInput extends Component{
 
 		return( 
 		<div style={dimensions}>
-			<Input type="text" className="left_align text_search"  onChange={this.handleTextChange.bind(this)} />
+			<Input type="text" className="left_align text_search"  onKeyUp={this.handleKeyUp.bind(this)} />
 			<Button style={alignSearchButton}  className="primary_theme font_cursive" onClick={this.handleButtonClick.bind(this)}>Search</Button>
 			<SuggestionList data={this.state.suggestiondata} show={this.state.showsuggestion} />
 		</div>

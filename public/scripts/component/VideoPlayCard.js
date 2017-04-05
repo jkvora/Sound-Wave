@@ -10,9 +10,7 @@ class VideoPlayCard extends Component{
     constructor(props,context){
         super(props,context)
     }
-    
-    
-    
+
     render(){
 
         let floatLeft={float:'left'};
