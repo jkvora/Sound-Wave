@@ -18,8 +18,8 @@ class VideoItems extends Component{
         return(
             <div>
                {
-                    this.props.cards.map((item) => 
-                        <VideoPlayCard details={item.snippet}/> 
+                    this.props.cards.map((item,index) => 
+                        <VideoPlayCard  key={index}  details={item.snippet}/> 
                     )
                 }
 

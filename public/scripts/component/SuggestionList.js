@@ -11,20 +11,22 @@ class SuggestionList extends Component{
   
 constructor(props,context){
 		super(props,context)
-		this.state={
-        iSelectionIndex:-1
-		}
 	}
 
     render()
     {  
        let disp=this.props.show=="true"?{display:'block'}:{display:'none'};
+       
 
      return( 
       <div className="left_align clear_float suggestion_list" style={disp}>
            {
               this.props.data.map((item,index) => 
-                <SuggestionItem key={index}  itemtext={item[0]}/> 
+                {
+                    let focusNeeded=(index==this.props.iFocusIndex)?true:false;
+                    console.log(index==this.props.iFocusIndex);
+                    return <SuggestionItem  key={index}  focus={focusNeeded} itemtext={item[0]}/> 
+                }
               )
            }
    

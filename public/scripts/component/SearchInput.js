@@ -17,33 +17,74 @@ class SearchInput extends Component{
 		this.state={
 			searchtext:"",
 			suggestiondata:[],
-			showsuggestion:false
+			showsuggestion:false,
+			suggestionIndex:-1
 		}
 	}
 	
 	
 	handleButtonClick(){    
 		this.props.results(this.state.searchtext);
-		this.setState({showsuggestion:"false"});
+		this.setState({showsuggestion:"false",suggestionIndex:-1});
 	}
 	
-	handleKeyUp(event){
-		if(event.which==13)
+	handleKeyDown(event){
+		//handle key down events for accessibility
+		switch(event.which)
 		{
-			this.props.results(this.state.searchtext);
-			this.setState({showsuggestion:"false"});
-			return;
+			//Enter
+			case 13:
+			{
+				this.props.results(this.state.searchtext);
+				this.setState({showsuggestion:"false",suggestionIndex:-1});
+				return;
+			}
+
+
+			//Left Key
+			case 37:
+			{
+				event.preventDefault();
+				return;
+			}
+
+			//Up arrow
+			case 38:
+			{
+				event.preventDefault();
+				return;
+			}
+
+			//Right Key
+			case 39:
+			{
+				event.preventDefault();
+				return;
+			}
+
+			//Down Arrow
+			case 40:
+			{
+				let temp=this.state.suggestionIndex;
+				temp++;
+				this.setState({suggestionIndex:temp}); 
+				event.preventDefault();
+				return;
+			}
 		}
 		
-		this.setState({
-			searchtext: event.target.value,
+	
+	}
+	
+	handleSearchTextChange(event){
+			this.setState({
+			searchtext: event.target.value ,
 			showsuggestion:"true"
 			
 		});
 
 		this.findResults(event.target.value);
 	}
-	
 
 	findResults(text){
 		if(text!=""){
@@ -60,7 +101,8 @@ class SearchInput extends Component{
 	  else{
 		this.setState({
 			suggestiondata: [],
-			showsuggestion:"false"
+			showsuggestion:"false",
+			suggestionIndex:-1
 			
 		});
 	  }
@@ -90,9 +132,9 @@ class SearchInput extends Component{
 
 		return( 
 		<div style={dimensions}>
-			<Input type="text" className="left_align text_search"  onKeyUp={this.handleKeyUp.bind(this)} />
+			<Input type="text" className="left_align text_search" onChange={this.handleSearchTextChange.bind(this)} onKeyDown={this.handleKeyDown.bind(this)} />
 			<Button style={alignSearchButton}  className="primary_theme font_cursive" onClick={this.handleButtonClick.bind(this)}>Search</Button>
-			<SuggestionList data={this.state.suggestiondata} show={this.state.showsuggestion} />
+			<SuggestionList data={this.state.suggestiondata} show={this.state.showsuggestion} iFocusIndex={this.state.suggestionIndex} />
 		</div>
 		)   
 	}
