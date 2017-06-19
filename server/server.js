@@ -1,5 +1,12 @@
 var express= require('express');
 var path=require('path');
+var bodyParser=require('body-parser');
+var fs = require('fs');
+var ytdl = require('ytdl-core');
+
+var request=require('request');
+
+
 
 //Init App Instance
 var app=express();
@@ -22,10 +29,58 @@ app.use(webpackDevMiddleware(webpackcompiler,{
 app.use(webpackHotMiddleware(webpackcompiler));   
 
 
+/** bodyParser.urlencoded(options)
+ * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+ * and exposes the resulting object (containing the keys and values) on req.body
+ */
+app.use(bodyParser.json());
+
+
+
+
+
+
+
 //Maintain Routes
 app.use(express.static('../public'));
 app.use('/dist', express.static(path.join(__dirname,'..','public', 'dist')));
 
+
+app.post('/video',function(req,res){
+    console.log("In youtube Routes");
+
+    console.log(req);
+
+})
+
+request.get('/video',function(err,res,body){
+  
+});
+
+
+app.get('/video',function(req,res){
+    console.log("In youtube Routes");
+
+    
+      var strUrl=req.query.url;
+
+  var ytstream=ytdl(strUrl);
+    //var tempFile = fs.createWriteStream('/video');
+    
+      res.setHeader("Content-Type", "application/octet-stream"); 
+      res.writeHead(200);
+
+    ytstream.on('data',function(data){
+       res.write(data);
+    })
+
+    ytstream.on('end',function(data){
+        res.send();
+    })
+
+     
+
+})
 
 //Path of base File to served
  var filename = path.resolve(__dirname,'..','public','index.html');
@@ -35,7 +90,7 @@ app.use('/', function (req, res) {
 
 
 //Server Listening....
-var port=5000;
+var port=3000;
 app.listen(port,function(error){
     if(error) throw err;
     console.log("Server is running at port no "+port);

@@ -12,25 +12,6 @@
     width:calc(100% - 155px);
 }
 
-.suggestion_list{
-    width: 100%;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19);
-}
-
-.suggestion_item{
-    height:20px;
-    font-family: cursive;
-}
-
-.suggestion_item:hover{
-    background-color: #1C9963 ;
-    color: white;
-}
-
-.suggestion_item:focus{
-    background-color: #1C9963 ;
-    color: white;
-}
 
 
 .font_cursive{
@@ -39,35 +20,5 @@
 
 .clear_float{
     clear: both;
-}
-
-.cardbox{
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-    margin: 10px;
-    width: calc(100% - 10px);
-    height: 120px;
-    cursor: pointer;
-    position: relative;
-    margin:10px;
-}
-
-.card_thumbnail{
-    width:120px;
-    height: 90px;
-    padding-left: 5px;
-    padding-top:5px;
-}
-
-.card_details{
-    padding-top:10px;   
-    padding-left: 10px;
-}
-
-.card_title{
-
-}
-
-.card_description{
-    
 }
 
