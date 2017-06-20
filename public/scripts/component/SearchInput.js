@@ -17,7 +17,9 @@ class SearchInput extends Component{
 		}
 	}
 	
-	
+	/*
+	  Handle downloading of  video
+	*/	
 	handleDownloadVideo(){    
 		//make request and download video  here
 		if(this.state.searchtext!="") {	
@@ -26,7 +28,9 @@ class SearchInput extends Component{
 	}
 	
 	
-
+	/*
+		Handle Enter of Url Input
+	*/
 	handleKeyDown(event){
 		
 		switch(event.which)
@@ -39,26 +43,28 @@ class SearchInput extends Component{
 			}
 		}
 		
-	
+		
 	}
 	
+	/*
+		Track changes of key stroke
+	*/
 	handleSearchTextChange(event){
-			this.setState({
+		this.setState({
 			searchtext: event.target.value
 		});
 	}
 	
 	render(){
-	
+		
 		let alignSearchButton = {margin: '10px',width:'120px',float:'left'};
 		let dimensions = {position:'relative',width:'100%',height:'50px'};
 		
-
+		
 		return( 
 		<div style={dimensions}>
 			<Input type="text" className="left_align text_search" onChange={this.handleSearchTextChange.bind(this)} onKeyDown={this.handleKeyDown.bind(this)} ref={ (inputdiv)=>{this.searchinputdiv=inputdiv;} } />
-			<Button style={alignSearchButton}  className="primary_theme font_cursive" onClick={this.handleDownloadVideo.bind(this)}>Search</Button>
-			
+			<Button style={alignSearchButton}  className="primary_theme font_cursive" onClick={this.handleDownloadVideo.bind(this)}>Search</Button>		
 		</div>
 		)   
 	}
