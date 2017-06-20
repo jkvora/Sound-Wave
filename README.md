@@ -1,2 +1,2 @@
 # Sound-Wave
-An React-Redux application to listen music.
+An React-app for downloading  youtube videos offline.
